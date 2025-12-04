@@ -1,0 +1,337 @@
+:root {
+  --primary-pink: #FF6B82;
+  --primary-pink-light: #FFF0F3;
+  --text-dark: #1A1A1A;
+  --text-grey: #666666;
+  --border-grey: #E5E5E5;
+  --white: #FFFFFF;
+  --font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+#app {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bogo-card {
+  background: var(--white);
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header */
+.bogo-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  color: var(--primary-pink);
+}
+
+.bogo-header h1 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.bogo-line {
+  height: 1px;
+  background-color: var(--border-grey); /* Or pink if strictly matching, looks greyish in some, but let's stick to subtle */
+  flex: 1;
+  max-width: 40px;
+}
+
+/* Options Form */
+.bundle-options {
+  padding: 0 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bundle-option {
+  border: 1px solid var(--border-grey);
+  border-radius: 4px;
+  padding: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.bundle-option.selected {
+  border: 2px solid var(--primary-pink);
+  background-color: var(--primary-pink-light);
+  padding: 13px; /* Compensate for 1px extra border to prevent layout shift */
+}
+
+/* Most Popular Badge */
+.popular-badge {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background-color: var(--primary-pink);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 0 0 4px 4px; /* Looks rectangular in image but let's make it neat */
+  border-radius: 2px;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+/* Option Main Row */
+.option-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  position: relative;
+}
+
+.radio-container input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.custom-radio {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--border-grey);
+  border-radius: 50%;
+  background: white;
+  position: relative;
+}
+
+.bundle-option.selected .custom-radio {
+  border-color: var(--primary-pink);
+}
+
+.bundle-option.selected .custom-radio::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-pink);
+  border-radius: 50%;
+}
+
+.option-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.option-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.unit-label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.discount-badge {
+  background-color: var(--primary-pink);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.option-subtitle {
+  font-size: 11px;
+  color: var(--text-grey);
+  margin-top: 2px;
+  display: none; /* Hidden by default based on 2nd option */
+}
+
+/* Show subtitle only if not selected or specifically needed? 
+   The design shows "Standard Price" text only on the first option maybe? 
+   Or it's just obscured. I'll leave it hidden for clean look or handle in JS if needed.
+   Actually, let's show it for unselected items if text exists.
+*/
+
+.option-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 14px;
+}
+
+.old-price {
+  font-size: 11px;
+  color: var(--text-grey);
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
+.current-price {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Selectors */
+.selectors-container {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  display: none; /* Hidden by default */
+}
+
+.selector-labels {
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.selector-labels span:nth-child(1) {
+  grid-column: 2;
+}
+.selector-labels span:nth-child(2) {
+  grid-column: 3;
+}
+
+.selector-row {
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.selector-row:last-child {
+  margin-bottom: 0;
+}
+
+.row-number {
+  font-size: 12px;
+  color: var(--text-grey);
+}
+
+.custom-select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border-grey);
+  border-radius: 2px;
+  font-size: 12px;
+  color: var(--text-dark);
+  background-color: white;
+  outline: none;
+  font-family: inherit;
+}
+
+.custom-select:focus {
+  border-color: var(--primary-pink);
+}
+
+/* Footer */
+.bogo-footer {
+  padding: 15px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.delivery-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.free-delivery {
+  color: var(--primary-pink);
+}
+
+.total-price {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.add-to-cart-btn {
+  background-color: var(--primary-pink);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+  box-shadow: 0 2px 6px rgba(255, 107, 130, 0.3);
+}
+
+.add-to-cart-btn:hover {
+  background-color: #ff526d;
+}
+
+.plus-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.powered-by {
+  text-align: right;
+  font-size: 10px;
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 350px) {
+  .selector-row {
+    gap: 5px;
+  }
+  .custom-select {
+    padding: 4px;
+  }
+}
+</style.css>

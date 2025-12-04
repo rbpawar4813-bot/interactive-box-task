@@ -1,0 +1,14 @@
+{
+  "name": "bogo-card-standard",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "dependencies": {
+    "lucide": "^0.555.0"
+  }
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YAY! IT'S BOGO</title>
+    <meta name="description" content="Select your bundle and save more with our BOGO offer." />
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="bogo-card">
+        <div class="bogo-header">
+          <span class="bogo-line"></span>
+          <h1>YAY! IT'S BOGO</h1>
+          <span class="bogo-line"></span>
+        </div>
+
+        <form id="bundle-form" class="bundle-options">
+       
+          <div class="bundle-option" data-id="1" data-price="10.00">
+            <div class="option-main">
+              <div class="radio-container">
+                <div class="custom-radio"></div>
+                <input type="radio" name="bundle" value="1" id="bundle-1">
+              </div>
+              <div class="option-info">
+                <div class="option-title-row">
+                  <span class="unit-label">1 Unit</span>
+                  <span class="discount-badge">10% Off</span>
+                </div>
+                <div class="option-subtitle">Standard Price</div>
+              </div>
+              <div class="option-price">
+                <span class="old-price">$24.00 USD</span>
+                <span class="current-price">$10.00 USD</span>
+              </div>
+            </div>
+            
+            <div class="selectors-container">
+              <div class="selectors-grid">
+                <div class="selector-labels">
+                  <span>Size</span>
+                  <span>Colour</span>
+                </div>
+                <div class="selector-row">
+                  <span class="row-number">#1</span>
+                  <select class="custom-select">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                  </select>
+                  <select class="custom-select">
+                    <option>Black</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option 2 (Most Popular) -->
+          <div class="bundle-option popular selected" data-id="2" data-price="18.00">
+            <div class="popular-badge">MOST POPULAR</div>
+            <div class="option-main">
+              <div class="radio-container">
+                <div class="custom-radio"></div>
+                <input type="radio" name="bundle" value="2" id="bundle-2" checked>
+              </div>
+              <div class="option-info">
+                <div class="option-title-row">
+                  <span class="unit-label">2 Unit</span>
+                  <span class="discount-badge">20% Off</span>
+                </div>
+              </div>
+              <div class="option-price">
+                <span class="old-price">$24.00 USD</span>
+                <span class="current-price">$18.00 USD</span>
+              </div>
+            </div>
+            
+            <!-- Selectors container (Visible for selected) -->
+            <div class="selectors-container" style="display: block;">
+              <div class="selectors-grid">
+                <div class="selector-labels">
+                  <span>Size</span>
+                  <span>Colour</span>
+                </div>
+                <div class="selector-row">
+                  <span class="row-number">#1</span>
+                  <select class="custom-select">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                  </select>
+                  <select class="custom-select">
+                    <option>Black</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                  </select>
+                </div>
+                <div class="selector-row">
+                  <span class="row-number">#2</span>
+                  <select class="custom-select">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                  </select>
+                  <select class="custom-select">
+                    <option>Colour</option>
+                    <option>Black</option>
+                    <option>Red</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option 3 -->
+          <div class="bundle-option" data-id="3" data-price="24.00">
+            <div class="option-main">
+              <div class="radio-container">
+                <div class="custom-radio"></div>
+                <input type="radio" name="bundle" value="3" id="bundle-3">
+              </div>
+              <div class="option-info">
+                <div class="option-title-row">
+                  <span class="unit-label">3 Unit</span>
+                  <span class="discount-badge">30% Off</span>
+                </div>
+              </div>
+              <div class="option-price">
+                <span class="old-price">$24.00 USD</span>
+                <span class="current-price">$24.00 USD</span>
+              </div>
+            </div>
+             <!-- Selectors container (Hidden by default) -->
+             <div class="selectors-container">
+              <div class="selectors-grid">
+                <div class="selector-labels">
+                  <span>Size</span>
+                  <span>Colour</span>
+                </div>
+                <div class="selector-row">
+                  <span class="row-number">#1</span>
+                  <select class="custom-select">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                  </select>
+                  <select class="custom-select">
+                    <option>Black</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                  </select>
+                </div>
+                <div class="selector-row">
+                  <span class="row-number">#2</span>
+                  <select class="custom-select">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                  </select>
+                  <select class="custom-select">
+                    <option>Black</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                  </select>
+                </div>
+                <div class="selector-row">
+                  <span class="row-number">#3</span>
+                  <select class="custom-select">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                  </select>
+                  <select class="custom-select">
+                    <option>Black</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="bogo-footer">
+          <div class="delivery-row">
+            <span class="free-delivery">Free Delivery</span>
+            <span class="total-price">Total : $18.00 USD</span>
+          </div>
+          <button class="add-to-cart-btn">
+            <i data-lucide="plus" class="plus-icon"></i> Add to Cart
+          </button>
+          <div class="powered-by">@ Powered by Pumper</div>
+        </div>
+      </div>
+    </div>
+    <script src="/main.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
